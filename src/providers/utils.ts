@@ -55,6 +55,18 @@ export function getDefaultProviderConfig(): ProviderManagerConfig {
         timeout: 60000,
         retryAttempts: 3,
       },
+      openrouter: {
+        provider: 'openrouter',
+        apiKey: process.env.OPENROUTER_API_KEY,
+        apiUrl: process.env.OPENROUTER_API_URL || 'https://openrouter.ai/api/v1',
+        model: 'google/gemini-2.5-pro',
+        temperature: 0.7,
+        maxTokens: 4096,
+        enableStreaming: true,
+        enableCaching: true,
+        timeout: 60000,
+        retryAttempts: 3,
+      },
       google: {
         provider: 'google',
         apiKey: process.env.GOOGLE_AI_API_KEY,
@@ -123,24 +135,24 @@ function getDefaultFallbackStrategy(): FallbackStrategy {
     rules: [
       {
         condition: 'rate_limit',
-        fallbackProviders: ['openai', 'google', 'cohere', 'ollama'],
+        fallbackProviders: ['openai', 'openrouter', 'google', 'cohere', 'ollama'],
         retryOriginal: true,
         retryDelay: 60000, // 1 minute
       },
       {
         condition: 'unavailable',
-        fallbackProviders: ['openai', 'google', 'anthropic', 'cohere'],
+        fallbackProviders: ['openai', 'openrouter', 'google', 'anthropic', 'cohere'],
         retryOriginal: true,
         retryDelay: 30000, // 30 seconds
       },
       {
         condition: 'timeout',
-        fallbackProviders: ['anthropic', 'openai', 'cohere'],
+        fallbackProviders: ['anthropic', 'openai', 'openrouter', 'cohere'],
         retryOriginal: false,
       },
       {
         condition: 'cost',
-        fallbackProviders: ['ollama', 'cohere', 'google'],
+        fallbackProviders: ['ollama', 'cohere', 'google', 'openrouter'],
         retryOriginal: false,
       },
       {
