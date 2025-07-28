@@ -181,6 +181,9 @@ MEMORY_BACKUP_INTERVAL=3600000
 # Optional: API Keys
 GITHUB_TOKEN=your_github_token
 OPENAI_API_KEY=your_openai_key
+OPENROUTER_API_KEY=your_openrouter_key
+# Optional custom API URL
+# OPENROUTER_API_URL=https://openrouter.ai/api/v1
 ```
 
 ### 2. Shell Configuration

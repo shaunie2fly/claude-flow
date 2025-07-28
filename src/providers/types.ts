@@ -7,12 +7,13 @@ import { EventEmitter } from 'events';
 
 // ===== PROVIDER TYPES =====
 
-export type LLMProvider = 
+export type LLMProvider =
   | 'openai'
   | 'anthropic'
   | 'google'
   | 'cohere'
   | 'ollama'
+  | 'openrouter'
   | 'llama-cpp'
   | 'custom';
 
@@ -47,6 +48,12 @@ export type LLMModel =
   | 'llama-2-70b'
   | 'mistral-7b'
   | 'mixtral-8x7b'
+  // OpenRouter Models
+  | 'qwen/qwen3-235b-a22b-thinking-2507'
+  | 'qwen/qwen3-coder:free'
+  | 'moonshotai/kimi-k2'
+  | 'moonshotai/kimi-k2:free'
+  | 'google/gemini-2.5-pro'
   | 'custom-model';
 
 // ===== BASE INTERFACES =====

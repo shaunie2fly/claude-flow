@@ -13,6 +13,7 @@ export { OpenAIProvider } from './openai-provider.js';
 export { GoogleProvider } from './google-provider.js';
 export { CohereProvider } from './cohere-provider.js';
 export { OllamaProvider } from './ollama-provider.js';
+export { OpenRouterProvider } from './openrouter-provider.js';
 
 // Export manager
 export { ProviderManager, ProviderManagerConfig } from './provider-manager.js';
